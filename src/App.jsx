@@ -20,17 +20,20 @@ function App() {
   }, [])
 
   if (fetched == false) {
-    console.log('loading')
+    return (<p>Loading</p>)
   } else {
     if (castArray.length == 0) {
-      fetchedArray.slice(0, 12).map(item => {
+      fetchedArray.slice(0, 12).map(item => (
         castArray.push({
           id: item.character.id,
           name: item.character.name,
           imageUrl: item.character.image.medium
         })
-      })
+      ))
     }
+    return (
+      <Cards castArray={castArray}></Cards>
+    )
   }
 }
 
