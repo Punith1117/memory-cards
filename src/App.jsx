@@ -3,7 +3,6 @@ import './App.css'
 import Cards from './components/Cards'
 import Scores from './components/Scores'
 
-let castArray = []
 let fetchedArray = []
 
 function App() { 
@@ -11,6 +10,7 @@ function App() {
   const [chosenCards, setChosenCards] = useState([])
   const [currentScore, setCurrentScore] = useState(0)
   const [bestScore, setBestScore] = useState(0)
+  const [castArray, setCastArray] = useState([])
 
   useEffect(() => {
     if (fetched == false) {
@@ -22,6 +22,11 @@ function App() {
       })
     }
   }, [])
+
+  useEffect(() => {
+    let shuffledArray = randomize(castArray)
+    setCastArray(shuffledArray)
+  }, [chosenCards])
 
   let setScores = (id) => {
     if (chosenCards.includes(id)) {
@@ -43,13 +48,13 @@ function App() {
     return (<p>Loading</p>)
   } else {
     if (castArray.length == 0) {
-      fetchedArray.slice(0, 12).map(item => (
-        castArray.push({
+      setCastArray(fetchedArray.slice(0, 12).map(item => (
+        {
           id: item.character.id,
           name: item.character.name,
           imageUrl: item.character.image.medium
-        })
-      ))
+        }
+      )))
     }
     return (
       <>
@@ -60,4 +65,16 @@ function App() {
   }
 }
 
+function randomize(array) {
+  let newArr = [...array]
+  // Iterate over the array in reverse order
+  for (let i = newArr.length - 1; i > 0; i--) {
+      // Generate Random Index
+      const j = Math.floor(Math.random() * (i + 1));
+
+      // Swap elements
+      [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+  }
+  return newArr;
+}
 export default App
