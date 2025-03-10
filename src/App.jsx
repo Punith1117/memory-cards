@@ -43,9 +43,24 @@ function App() {
       })
     }
   }
-
+  
   if (fetched == false) {
-    return (<p>Loading</p>)
+    return (
+      <>
+        <header>
+          <div className='name-author'>
+            <h1>Memory Cards</h1>
+            <a href="https://github.com/Punith1117/memory-cards">By Punith1117</a>
+          </div>
+          <div className="how-to-play">
+            <button onClick={() => toggleHowToPlay()}>How To Play</button>
+            <p>Test your memory by continously choosing each card not more than once. Your goal is to achieve a best score of 12.</p>
+          </div>
+        </header>
+        <Scores currentScore={currentScore} bestScore={bestScore}></Scores>
+        <p>loading...</p>
+      </>
+    )
   } else {
     if (castArray.length == 0) {
       setCastArray(fetchedArray.slice(0, 12).map(item => (
