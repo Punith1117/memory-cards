@@ -64,8 +64,8 @@ function App() {
             <a href="https://github.com/Punith1117/memory-cards">By Punith1117</a>
           </div>
           <div className="how-to-play">
-            <button>How To Play</button>
-            <p>Test your memory by continously choosing each card not more than once. Try to maximize best score to 12.</p>
+            <button onClick={() => toggleHowToPlay()}>How To Play</button>
+            <p>Test your memory by continously choosing each card not more than once. Your goal is to achieve a best score of 12.</p>
           </div>
         </header>
         <Scores currentScore={currentScore} bestScore={bestScore}></Scores>
@@ -87,4 +87,10 @@ function randomize(array) {
   }
   return newArr;
 }
+
+function toggleHowToPlay() {
+  let instructions = document.querySelector('.how-to-play p')
+  instructions.classList.toggle('show')
+}
+
 export default App
