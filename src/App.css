@@ -6,7 +6,6 @@
 
 button {
   border: 0;
-  outline: none;
 
   &:hover {
     cursor: pointer;
