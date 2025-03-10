@@ -58,6 +58,16 @@ function App() {
     }
     return (
       <>
+        <header>
+          <div className='name-author'>
+            <h1>Memory Cards</h1>
+            <a href="https://github.com/Punith1117/memory-cards">By Punith1117</a>
+          </div>
+          <div className="how-to-play">
+            <button>How To Play</button>
+            <p>Test your memory by continously choosing each card not more than once. Try to maximize best score to 12.</p>
+          </div>
+        </header>
         <Scores currentScore={currentScore} bestScore={bestScore}></Scores>
         <Cards castArray={castArray} setScores={setScores}></Cards>
       </>
