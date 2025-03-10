@@ -87,12 +87,27 @@ header {
     gap: 10px;
 
     h1 {
-      font-size: max(2vw, 1.5rem);
+      font-size: max(2.2vw, 1.8rem);
     }
 
     a {
       text-underline-offset: 2px;
       color: #52d852 ;
     }
+  }
+}
+
+.scores {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #5A2D82;
+  color: #D3D3D3;
+  padding: 10px;
+
+  h2 {
+    font-family: monospace;
+    font-size: max(1.3vw, 1.3rem);
   }
 }
