@@ -118,3 +118,31 @@ header {
     font-size: max(1.3vw, 1.3rem);
   }
 }
+
+@media (max-width: 562px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+    button {
+      border-radius: 5px;
+    }
+    
+    figure {
+      border-radius: 5px;
+      padding: 2px;
+      padding-top: 5px;
+      box-shadow: 5px 5px 10px #2c163f;
+      gap: 2px;
+      transition: none;
+      
+      &:hover {
+        transform: none;
+        box-shadow: 5px 5px 10px #2c163f;
+      }
+
+      img {
+        width: 140px;
+      }
+    }
+  }
+}
